@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CardCenter</title>
+</head>
+<body>
+	<section>
+		<div>
+			<header>Bienvenido a la tienda</header>
+			<p>Formulario para agregar una nueva carta</p>
+		</div>
+		<div>
+		
+			<table border="0" cellspacing="0" cellpadding="2" style="width:100%;">
+				<tbody><tr class="row1">
+				<td style="width:40%">Name:</td>
+				<td><input type="text" class="input_text" name="name" id="name"></td>
+				</tr>
+				<tr class="row2">
+				<td>Card Type:</td>
+				<td><select name="cardtype" id="cardtype" onchange="javascript:updatefields()">
+					<option value="Monster">
+					Monster
+					</option>
+					<option value="Ritual">
+					Ritual
+					</option>
+					<option value="Fusion">
+					Fusion
+					</option>
+					<option value="Spell">
+					Spell
+					</option>
+					<option value="Trap">
+					Trap
+					</option>
+					<option value="Synchro">
+					Synchro
+					</option>
+					<option value="Xyz">
+					Xyz
+					</option>
+				</select>
+				<select name="subtype" id="subtype">
+					<option value="normal" selected="true">
+					Normal
+					</option>
+					<option value="effect">
+					Effect
+					</option>
+					<option value="divine">
+					Divine
+					</option>
+					<option value="gemini">
+					Gemini
+					</option>
+					<option value="spirit">
+					Spirit
+					</option>
+					<option value="toon">
+					Toon
+					</option>
+					<option value="tuner">
+					Tuner
+					</option>
+					<option value="union">
+					Union
+					</option>
+				</select>
+				</td></tr>
+				<tr class="row1">
+				<td>Attribute:</td>
+				<td><select name="attribute" id="attribute">
+					<option value="Light">
+					Light
+					</option>
+					<option value="Dark">
+					Dark
+					</option>
+					<option value="Fire">
+					Fire
+					</option>
+					<option value="Water">
+					Water
+					</option>
+					<option value="Wind">
+					Wind
+					</option>
+					<option value="Earth">
+					Earth
+					</option>
+					<option value="Divine">
+					Divine
+					</option>
+				</select></td>
+				</tr>
+				<tr class="row2">
+				<td>Level:</td>
+				<td><select name="level" id="level">
+				<option value="1">
+				1
+				</option>
+				<option value="2">
+				2
+				</option>
+				<option value="3">
+				3
+				</option>
+				<option value="4">
+				4
+				</option>
+				<option value="5">
+				5
+				</option>
+				<option value="6">
+				6
+				</option>
+				<option value="7">
+				7
+				</option>
+				<option value="8">
+				8
+				</option>
+				<option value="9">
+				9
+				</option>
+				<option value="10">
+				10
+				</option>
+				<option value="11">
+				11
+				</option>
+				<option value="12">
+				12
+				</option>
+				<option value="0">
+				0
+				</option>
+				</select></td>
+				</tr>
+				<tr class="row1">
+				<td>Trap/Spell Type:</td>
+				<td><select name="trapmagictype" id="trapmagictype" disabled="">
+					<option value="None">
+					None
+					</option>
+					<option value="Equip">
+					Equip
+					</option>
+					<option value="Continuous">
+					Continuous
+					</option>
+					<option value="Counter">
+					Counter
+					</option>
+					<option value="Quick-Play">
+					Quick-Play
+					</option>
+					<option value="Field">
+					Field
+					</option>
+					<option value="Ritual">
+					Ritual
+					</option>
+				</select></td>
+				</tr>
+				<tr class="row2">
+				<td>Card Rarity:</td>
+				<td><select name="rarity" id="rarity">
+					<option value="Common">
+					Common
+					</option>
+					<option value="Rare">
+					Rare
+					</option>
+					<option value="Super Rare">
+					Super Rare
+					</option>
+					<option value="Ultra Rare">
+					Ultra Rare
+					</option>
+					<option value="Secret Rare">
+					Secret Rare
+					</option>
+					<option value="Ultimate Rare">
+					Ultimate Rare
+					</option>
+				</select></td>
+				</tr>
+				<tr class="row1">
+				<td>Picture URL:</td>
+				<td><input type="text" class="input_text" name="picture" id="picture" style="width:70%">
+				<input type="button" class="ipsButton_secondary" value="Upload" onclick="uploadimage();"></td>
+				</tr>
+				<tr class="row2">
+				<td>Circulation:</td>
+				<td><input type="text" class="input_text" name="circulation" id="circulation"></td>
+				</tr>
+				<tr class="row1">
+				<td>Set ID:</td>
+				<td><input type="text" class="input_text" name="set1" id="set1" size="5" maxlength="5" onkeyup="javascript:updatesetbutton();"> -
+				<input type="text" class="input_text" name="set2" id="set2" size="5" maxlength="5">
+				</tr>
+				<tr class="row2">
+				<td>Type:</td>
+				<td><input type="text" class="input_text" name="type" id="type">
+				</td>
+				</tr>
+				<tr class="row1">
+				<td>Description:</td>
+				<td>
+				<textarea name="carddescription" id="carddescription" style="height:46px;font-size: 10px" cols="55" rows="4"></textarea></td>
+				</tr>
+				<tr class="row2">
+				<td>ATK / DEF:</td>
+				<td><input type="text" class="input_text" name="atk" id="atk" size="4" maxlength="4"> /
+				<input type="text" class="input_text" name="def" id="def" size="4" maxlength="4"></td>
+				</tr>
+				<tr class="row1">
+				<td>Creator:</td>
+				<td><input type="text" class="input_text" name="creator" id="creator"></td>
+				</tr>
+				<tr class="row2">
+				<td>Year:</td>
+				<td><input type="text" class="input_text" name="year" id="year" size="4" maxlength="4"></td>
+				</tr>
+				<tr class="row1">
+				<td>Serial Number:</td>
+				<td><input type="text" class="input_text" name="serial" id="serial" size="8" maxlength="8"> <input type="button" class="ipsButton_secondary" value="Random" onclick="randomserial();"></td>
+				</tr>
+				<td>
+					<input type="button" onclick="botonguardarclick();" value="Save"></td>
+				</tr>
+				</tbody></table>
+			
+		</div>
+	</section>
+	<script src="jquery/jquery-3.2.1.min.js"></script>
+	<script src="classcardfrontend.js"></script>
+	<script type="text/javascript">
+	function randomserial()
+	{
+    	document.getElementById("serial").value=""; 
+    	for (i=1;i<9;i++)
+    	{
+    	    document.getElementById("serial").value=document.getElementById("serial").value+Math.floor(Math.random()*10);
+    	}
+}
+function updatefields(){
+if (document.getElementById("cardtype").options[document.getElementById("cardtype").selectedIndex].value=='Spell' || document.getElementById("cardtype").options[document.getElementById("cardtype").selectedIndex].value=='Trap')
+{
+document.getElementById("attribute").disabled=true;
+document.getElementById("level").disabled=true;
+document.getElementById("type").disabled=true;
+document.getElementById("atk").disabled=true;
+document.getElementById("def").disabled=true;
+document.getElementById("subtype").disabled=true;
+document.getElementById("trapmagictype").disabled=false;}else{
+document.getElementById("attribute").disabled=false;
+document.getElementById("level").disabled=false;
+document.getElementById("type").disabled=false;
+document.getElementById("atk").disabled=false;
+document.getElementById("def").disabled=false;
+document.getElementById("subtype").disabled=false;
+document.getElementById("trapmagictype").disabled=true;
+}
+}
+</script>
+</body>
+</html>
