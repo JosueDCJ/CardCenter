@@ -58,7 +58,6 @@ catch(err) {
     
     Login() {
          var objetoaenviar = this;
-         console.log(objetoaenviar)
   return new Promise(function(resolve, reject) {
     // Do the usual XHR stuff
       

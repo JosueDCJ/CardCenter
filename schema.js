@@ -9,7 +9,6 @@ var card = new Schema({
     LEVEL: Number,
     TRAPSSPELLTYPE: String,
     RARITY: String,
-    IMAGEN: String, 
     CIRCULATION: String,
     SET1: Number,
     SET2: Number,
@@ -20,5 +19,6 @@ var card = new Schema({
     CREATOR: String,
     YEAR: Number,
     SERIAL: Number,
+    IMAGEN: String,
 });
 module.exports = mongoose.model('schema',card);//HACE VISIBLE LA FUNCION

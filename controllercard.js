@@ -3,9 +3,9 @@ module.exports = class _Card {
    constructor( ) {
 
    }// Para crear campos
-Guardar(req,res) {
+Guardar(req,res) {//funcion llamada por el routes para la peticion
 	Item.create(//crea
-			{
+			{//pide la informacion de del constructor de la clase _Card para compararla con el esquema de mongoose y guardarla
   NOMBRE: req.body.NOMBRE,
     CARDTYPE: req.body.CARDTYPE,
     SUBTYPE: req.body.SUBTYPE,
@@ -13,7 +13,6 @@ Guardar(req,res) {
     LEVEL: req.body.LEVEL,
     TRAPSSPELLTYPE: req.body.TRAPSSPELLTYPE, //Trap Spell type card
     RARITY: req.body.RARITY,
-    IMAGEN: req.body.IMAGEN,
     CIRCULATION: req.body.CIRCULATION,
     SET1: req.body.SET1,
     SET2: req.body.SET2,
@@ -23,7 +22,8 @@ Guardar(req,res) {
     DEF: req.body.DEF,
     CREATOR: req.body.CREATOR,
     YEAR: req.body.YEAR,
-    SERIAL: req.body.SERIAL
+    SERIAL: req.body.SERIAL,
+    IMAGEN: req.body.IMAGEN
             }, 
 			function(err, item) {
 				if (err)//manda error
@@ -58,7 +58,6 @@ Guardar(req,res) {
     LEVEL: req.body.LEVEL,
     TRAPSSPELLTYPE: req.body.TRAPSSPELLTYPE, //Trap Spell type card
     RARITY: req.body.RARITY,
-    IMAGEN: req.body.IMAGEN,
     CIRCULATION: req.body.CIRCULATION,
     SET1: req.body.SET1,
     SET2: req.body.SET2,
@@ -68,7 +67,8 @@ Guardar(req,res) {
     DEF: req.body.DEF,
     CREATOR: req.body.CREATOR,
     YEAR: req.body.YEAR,
-    SERIAL: req.body.SERIAL
+    SERIAL: req.body.SERIAL,
+    IMAGEN: req.body.IMAGEN
             }, 
 			function(err, item) {
 				if (err)

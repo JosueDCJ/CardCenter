@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CardCenter</title>
+	<link rel="stylesheet" type="text/css" href="header.css">
+
+</head>
+<body onload="chargecards()">
+	<div class='nav'>
+  <ul>
+    <li>
+      <a class='logo'>
+</a>
+    </li>
+    <li>
+      <a href='addcard.html'>Agregar cartas</a>
+    </li>
+    
+    <li>
+      <a href="#...Saliendo" onclick="salir()" id="loginout">log out</a>
+    </li>
+    <li>
+      <a href='#contact'>
+        <div class='fa fa-envelope'></div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div id="carddiv">
+	
+</div>
+
+</body>
+<script src="classcardfrontend.js"></script>
+<script src="jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	var cantidaddecartas
+	function createcards()
+	{
+		cantidaddecartas++
+    	document.getElementById('carddiv').innerHTML +="<div id='cardsection'"+cantidaddecartas+"><p>hola</p></div>"
+	}
+	function chargecards()
+    {
+    	        let clasecardinstanciada = new _Card();//con esto pide la clase card para instanciarla aqui
+               clasecardinstanciada.Seleccionartodos().then(function(response) {
+                   //llama a la funcion de la clase para seleccionar todos los elementos
+ for(var elemento in response)
+     {
+    	createcards(response)
+//         var fechadelapeliculaactual = new Date(response[elemento].FECHA);
+         agregaimgdecartaaldiv(response[elemento].IMAGEN,response[elemento]._id);
+         
+     }
+                   
+                   
+                   
+                   
+}, function(error) {
+ console.log(error);
+});
+        
+        
+    }
+    
+	
+    function agregaimgdecartaaldiv(imgenbase64,iddeldiv,iddelacarta)  //  Primero llega a la funcion de abajo cargarpeliculasdelmesyanno
+
+    {
+
+
+        document.getElementById('cardsection').innerHTML += "<img src='"+imgenbase64+"' height='42' width='42' id= "+iddelacarta+" onclick='cargataquilla(\""+iddelacarta+"\")' class='img'>"; //  El fec dentro del getElementById es porque solo reconoce los numeros y hay que concatenar el fec
+    }
+    
+    function cargataquilla(id)
+        {
+
+
+             let clasepeliculainstanciada = new _Pelicula(id);
+               clasepeliculainstanciada.Seleccionarporid().then(function(response) {
+
+
+
+               localStorage.setItem("peliculaseleccionada",JSON.stringify(response));
+                   location.href="Butacas.html"
+}, function(error) {
+ console.log(error);
+});}
+               function compruebacooki(){
+            if(localStorage.getItem("userlog")==null){
+            location.href="loginadm.html";
+            }
+        }
+        function salir(){
+            localStorage.removeItem("userlog");
+            location.href="loginadm.html";
+        }
+
+
+</script>
+</html>

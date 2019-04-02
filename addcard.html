@@ -2,8 +2,29 @@
 <html>
 <head>
 	<title>CardCenter</title>
+	<link rel="stylesheet" type="text/css" href="header.css">
 </head>
-<body>
+<body onload="compruebacooki()">
+	<div class='nav'>
+  <ul>
+    <li>
+      <a class='logo'>
+</a>
+    </li>
+    <li>
+      <a href='viewcard.html'>Ver cartas</a>
+    </li>
+    
+    <li>
+      <a href="#...Saliendo" onclick="salir()" id="loginout">log out</a>
+    </li>
+    <li>
+      <a href='#contact'>
+        <div class='fa fa-envelope'></div>
+      </a>
+    </li>
+  </ul>
+</div>
 	<section>
 		<div>
 			<header>Bienvenido a la tienda</header>
@@ -96,46 +117,46 @@
 				</tr>
 				<tr class="row2">
 				<td>Level:</td>
-				<td><select name="level" id="level">
-				<option value="1">
-				1
-				</option>
-				<option value="2">
-				2
-				</option>
-				<option value="3">
-				3
-				</option>
-				<option value="4">
-				4
-				</option>
-				<option value="5">
-				5
-				</option>
-				<option value="6">
-				6
-				</option>
-				<option value="7">
-				7
-				</option>
-				<option value="8">
-				8
-				</option>
-				<option value="9">
-				9
-				</option>
-				<option value="10">
-				10
-				</option>
-				<option value="11">
-				11
-				</option>
-				<option value="12">
-				12
-				</option>
-				<option value="0">
-				0
-				</option>
+					<td><select name="level" id="level">
+					<option value="1">
+					1
+					</option>
+					<option value="2">
+					2
+					</option>
+					<option value="3">
+					3
+					</option>
+					<option value="4">
+					4
+					</option>
+					<option value="5">
+					5
+					</option>
+					<option value="6">
+					6
+					</option>
+					<option value="7">
+					7
+					</option>
+					<option value="8">
+					8
+					</option>
+					<option value="9">
+					9
+					</option>
+					<option value="10">
+					10
+					</option>
+					<option value="11">
+					11
+					</option>
+					<option value="12">
+					12
+					</option>
+					<option value="0">
+					0
+					</option>
 				</select></td>
 				</tr>
 				<tr class="row1">
@@ -188,45 +209,45 @@
 				</select></td>
 				</tr>
 				<tr class="row1">
-				<td>Picture URL:</td>
-				<td><input type="text" class="input_text" name="picture" id="picture" style="width:70%">
-				<input type="button" class="ipsButton_secondary" value="Upload" onclick="uploadimage();"></td>
-				</tr>
-				<tr class="row2">
 				<td>Circulation:</td>
 				<td><input type="text" class="input_text" name="circulation" id="circulation"></td>
 				</tr>
-				<tr class="row1">
+				<tr class="row2">
 				<td>Set ID:</td>
 				<td><input type="text" class="input_text" name="set1" id="set1" size="5" maxlength="5" onkeyup="javascript:updatesetbutton();"> -
 				<input type="text" class="input_text" name="set2" id="set2" size="5" maxlength="5">
 				</tr>
-				<tr class="row2">
+				<tr class="row1">
 				<td>Type:</td>
 				<td><input type="text" class="input_text" name="type" id="type">
 				</td>
 				</tr>
-				<tr class="row1">
+				<tr class="row2">
 				<td>Description:</td>
 				<td>
 				<textarea name="carddescription" id="carddescription" style="height:46px;font-size: 10px" cols="55" rows="4"></textarea></td>
 				</tr>
-				<tr class="row2">
+				<tr class="row1">
 				<td>ATK / DEF:</td>
 				<td><input type="text" class="input_text" name="atk" id="atk" size="4" maxlength="4"> /
 				<input type="text" class="input_text" name="def" id="def" size="4" maxlength="4"></td>
 				</tr>
-				<tr class="row1">
+				<tr class="row2">
 				<td>Creator:</td>
 				<td><input type="text" class="input_text" name="creator" id="creator"></td>
 				</tr>
-				<tr class="row2">
+				<tr class="row1">
 				<td>Year:</td>
 				<td><input type="text" class="input_text" name="year" id="year" size="4" maxlength="4"></td>
 				</tr>
-				<tr class="row1">
+				<tr class="row2">
 				<td>Serial Number:</td>
 				<td><input type="text" class="input_text" name="serial" id="serial" size="8" maxlength="8"> <input type="button" class="ipsButton_secondary" value="Random" onclick="randomserial();"></td>
+				</tr>
+				<tr class="row1">
+				<td>Picture URL:</td>
+				<td><input type="text" class="input_text" name="picture" id="picture" style="width:70%">
+				<input class="input100" id="imgcarta" type="file"></td>
 				</tr>
 				<td>
 					<input type="button" onclick="botonguardarclick();" value="Save"></td>
@@ -265,6 +286,15 @@ document.getElementById("subtype").disabled=false;
 document.getElementById("trapmagictype").disabled=true;
 }
 }
+function compruebacooki(){
+            if(localStorage.getItem("userlog")==null){
+            location.href="loginadm.html";
+            }
+        }
+        function salir(){
+            localStorage.removeItem("userlog");
+            location.href="loginadm.html";
+        }
 </script>
 </body>
 </html>

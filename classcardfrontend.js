@@ -11,7 +11,6 @@ NOMBRE,
     LEVEL,
     TRAPSSPELLTYPE,
     RARITY,
-    IMAGEN,
     CIRCULATION,
     SET1,
     SET2,
@@ -22,6 +21,7 @@ NOMBRE,
     CREATOR,
     YEAR,
     SERIAL,
+    IMAGEN
             ) {
        this._id=_id;
 this.NOMBRE =NOMBRE;
@@ -31,7 +31,6 @@ this.NOMBRE =NOMBRE;
     this.LEVEL=LEVEL;
     this.TRAPSSPELLTYPE=TRAPSSPELLTYPE;
     this.RARITY=RARITY;
-    this.IMAGEN=IMAGEN;
     this.CIRCULATION=CIRCULATION;
     this.SET1=SET1;
     this.SET2=SET2;
@@ -42,8 +41,10 @@ this.NOMBRE =NOMBRE;
     this.CREATOR=CREATOR;
     this.YEAR=SERIAL;
     this.SERIAL=SERIAL;
+    this.IMAGEN=IMAGEN;
    }
 Guardar() {
+  //Funcion llamada cuando guarda los datos del boton
    var objetoaenviar = this;
   // Return a new promise.
   return new Promise(function(resolve, reject) {
@@ -52,7 +53,7 @@ Guardar() {
       try {
            
                var xhr = new XMLHttpRequest();
-xhr.open('POST', 'http://localhost:8080/api/Nuevacard');
+xhr.open('POST', 'http://localhost:8080/api/Nuevacard');//hace la solicitud en la api por medio de la ruta
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.onload = function() {
     if (xhr.status === 200) {
@@ -154,7 +155,8 @@ Seleccionartodos() {
       try {
            
                var xhr = new XMLHttpRequest();
-xhr.open('POST', 'http://localhost:8080/api/seleccionartodos');
+xhr.open('POST', 'http
+://localhost:8080/api/Seleccionarcard');
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.onload = function() {
     if (xhr.status === 200) {
@@ -309,28 +311,31 @@ catch(err) {
                 }
     
         function botonguardarclick()
+        //donde el boton crea una nueva clase intanciada
             {
-                var cardinstanciada = new _Card(0,
-                document.getElementById("name").value,
-                 document.getElementById("type").value,
-                document.getElementById("subtype").value,
-               document.getElementById("attribute").value,
-                document.getElementById("level").value,
-              document.getElementById("trapmagictype").value,
-              document.getElementById("rarity").value,
-          imagenenbase64,
-            document.getElementById("set1").value,
-            document.getElementById("set2").value,
-           document.getElementById("type").value,
-           document.getElementById("carddescription").value,
-         document.getElementById("atk").value,
-         document.getElementById("def").value,
-         document.getElementById("creator").value,
-         document.getElementById("year").value,
-         document.getElementById("serial").value
+          var cardinstanciada = new _Card(0,
+          document.getElementById("name").value,
+          document.getElementById("cardtype").value,
+          document.getElementById("subtype").value,
+          document.getElementById("attribute").value,
+          document.getElementById("level").value,
+          document.getElementById("trapmagictype").value,
+          document.getElementById("rarity").value,
+          document.getElementById("circulation").value,
+          document.getElementById("set1").value,
+          document.getElementById("set2").value,
+          document.getElementById("type").value,
+          document.getElementById("carddescription").value,
+          document.getElementById("atk").value,
+          document.getElementById("def").value,
+          document.getElementById("creator").value,
+          document.getElementById("year").value,
+          document.getElementById("serial").value,
+          imagenenbase64
                 );
                                                         
                 cardinstanciada.Guardar().then(function(response) {
+                  //trata de enviar los datos guardados llamando la funcion guardar del Front End
   console.log("Success!", response);
             alert("Guardado con exito");
               

@@ -6,7 +6,6 @@ var adm = new Schema({
     CLAVE: String, 
     EMAIL: String, 
     IMAGEN: String,
-    ESTADO: Number,
     SALT: String
 });
 
@@ -29,5 +28,6 @@ adm.methods.validPassword = function(password, clavebuena, salt){
     
     var hash = crypto.pbkdf2Sync(password, salt,1000, 64, 'sha512').toString('hex');
     return clavebuena === hash;
+    console.log(¨¨)
 };
 module.exports = mongoose.model('Administrador', adm);
